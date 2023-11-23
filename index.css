@@ -1,0 +1,120 @@
+html {
+    height: 100%;
+}
+
+body {
+    height: 100%;
+    background-color: #121213;
+    margin: 0;
+    padding: 0;
+}
+
+header, .title {
+    font-weight: 700;
+    font-size: 28px;
+    letter-spacing: 0.2rem;
+    text-transform: uppercase;
+    text-align: center;
+    position: relative;
+    left: 0;
+    right: 0;
+    pointer-events: none;
+    margin: 15px;
+}
+
+game-tile {
+    width: 40px;
+    text-transform: uppercase;
+    height: 40px;
+    text-align: center;
+}
+
+button {
+    font-family: inherit;
+    font-weight: bold;
+    border: 0;
+    padding: 0;
+    margin: 3px 3px;
+    height: 58px;
+    border-radius: 4px;
+    cursor: pointer;
+    user-select: none;
+    background-color: #3a3a3c;
+    color: #d7dadc;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0.3);
+}
+
+div {
+    display: block;
+    margin: inherit;
+}
+
+h1, label, .instructions, .title {
+    color: #d7dadc;
+}
+
+.letter{
+    margin: 8px;
+}
+.item {
+    border: 2px solid #3a3a3c;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 30px;
+    font-weight: bold;
+    background-color: #121213;
+    color: #d7dadc;
+    display: inline-grid;
+    height: 50px;
+    width: 50px;
+    margin: 2px;
+}
+
+.content {
+    max-width: 500px;
+    margin: auto;
+}
+
+.one-and-a-half {
+    flex: 1.5;
+    font-size: 12px;
+}
+
+.row {
+    display: flex;
+    width: 100%;
+    touch-action: manipulation;
+}
+.instructions {
+    margin: auto;
+    width: 90%;
+    font-size: 14px;
+}
+
+.examples {
+    border-bottom: 1px solid var(--color-tone-4);
+    border-top: 1px solid var(--color-tone-4);
+}
+
+.example {
+    margin-top: 24px;
+    margin-bottom: 24px;
+}
+
+.instructions li {
+    padding: .4em 1em;
+    list-style: none;
+
+    border-radius: 1em;
+
+    margin: .4em 0;
+    font-size: 1.2em;
+    border: 1px #e2e2e2 solid;
+    margin: auto;
+    width: 90%;
+    font-size: 16px;
+}

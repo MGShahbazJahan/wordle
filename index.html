@@ -6,10 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="shortcut icon" type="x-icon" href="wordleicon.png">
     <title>Wordle Unlimited games - Wordle Today</title>
     <script src="main.js" defer></script>
     <script src="custom.js" type="module"></script>
-
+    <link rel="stylesheet" href="index.css">
     <style>
         :root {
             --green: #6aaa64;
@@ -31,157 +32,12 @@
             --game-max-width: 500px;
         }
 
-        .nightmode {
-            --color-tone-1: #d7dadc;
-            --color-tone-2: #818384;
-            --color-tone-3: #565758;
-            --color-tone-4: #3a3a3c;
-            --color-tone-5: #272729;
-            --color-tone-6: #1a1a1b;
-            --color-tone-7: #121213;
-            --opacity-50: rgba(0, 0, 0, 0.5);
-        }
-
-        /* Constant colors and colors derived from theme */
-        .nightmode {
-            --color-background: var(--color-tone-7);
-        }
-
-        html {
-            height: 100%;
-        }
-
-        body {
-            height: 100%;
-            background-color: var(--color-background);
-            margin: 0;
-            padding: 0;
-            /* Prevent scrollbar appearing on page transition 
-       overflow-y: hidden;
-       */
-        }
-
-        header .title {
-            font-weight: 700;
-            font-size: 28px;
-            letter-spacing: 0.2rem;
-            text-transform: uppercase;
-            text-align: center;
-            position: relative;
-            left: 0;
-            right: 0;
-            pointer-events: none;
-            margin: 15px;
-        }
-
-        h1,
-        label,
-        .instructions,
-        .title {
-            color: #d7dadc;
-        }
-
-        body {
-            background-color: #121213;
-        }
-        .letter{
-            margin: 8px;
-        }
-        .item {
-            border: 2px solid #3a3a3c;
-            font-family: 'Times New Roman', Times, serif;
-            font-size: 30px;
-            font-weight: bold;
-            background-color: #121213;
-            color: #d7dadc;
-            display: inline-grid;
-            height: 50px;
-            width: 50px;
-            margin: 2px;
-        }
-
-        .content {
-            max-width: 500px;
-            margin: auto;
-        }
-
-        button {
-            font-family: inherit;
-            font-weight: bold;
-            border: 0;
-            padding: 0;
-            margin: 3px 3px;
-            height: 58px;
-            border-radius: 4px;
-            cursor: pointer;
-            user-select: none;
-            background-color: #3a3a3c;
-            color: #d7dadc;
-            flex: 1;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-transform: uppercase;
-            -webkit-tap-highlight-color: rgba(0, 0, 0, 0.3);
-        }
-        
-        div {
-            display: block;
-            margin: inherit;
-        }
-        .one-and-a-half {
-            flex: 1.5;
-            font-size: 12px;
-        }
-
-        .row {
-            display: flex;
-            width: 100%;
-            touch-action: manipulation;
-        }
-        .instructions {
-            margin: auto;
-            width: 90%;
-            font-size: 14px;
-        }
-        
-        .examples {
-            border-bottom: 1px solid var(--color-tone-4);
-            border-top: 1px solid var(--color-tone-4);
-        }
-        
-        .example {
-            margin-top: 24px;
-            margin-bottom: 24px;
-        }
-
-        game-tile {
-            width: 40px;
-            text-transform: uppercase;
-            height: 40px;
-            text-align: center;
-        }
-
         :host([page]) section {
             padding: 16px;
             padding-top: 0px;
         }
 
-        .instructions li {
-            padding: .4em 1em;
-            list-style: none;
-
-            border-radius: 1em;
-
-            margin: .4em 0;
-            font-size: 1.2em;
-            border: 1px #e2e2e2 solid;
-            margin: auto;
-            width: 90%;
-            font-size: 16px;
-        }
     </style>
-    
 </head>
 
 <body>
@@ -309,22 +165,20 @@
                         </game-row>
                     </div>
                     <div style="text-align: center;">
-                    <div><label>Number of Tries Left : </label>
-                    <label id="number">6</label>
-                    </div>
-                    <br>
-                    <input type="text" id="input" placeholder="Enter a five letter word">
-                    <script>
-                        var input = document.getElementById("input");
-                        // Execute a function when the user presses a key on the keyboard
-                        input.addEventListener("keypress", function(event) {
-                        // If the user presses the "Enter" key on the keyboard
-                        if (event.key === "Enter") {
-                            // Trigger the button element with a click
-                            document.getElementById("enter").click();
-                        }
-                        });
-                    </script>
+                        <div>
+                            <label>Number of Tries Left : </label>
+                            <label id="number">6</label>
+                        </div>
+                        <br>
+                        <input type="text" id="input" placeholder="Enter a five letter word">
+                        <script>
+                            var input = document.getElementById("input");
+                            input.addEventListener("keypress", function(event) {
+                                if (event.key === "Enter") {
+                                    document.getElementById("enter").click();
+                                }
+                            });
+                        </script>
                     </div>
                     <br>
                 </div>
@@ -371,14 +225,12 @@
         </div>
     </game-app>
     
-
     <section>
         <div class="instructions">
             <h1>Wordle Unlimited</h1>
             <hr>
             <p>Guess the hidden word in 6 tries.</p>
-            <p>Each guess must be a valid 5 letter word, you cannot enter random letters. Hit the enter button to submit
-                the guess.</p>
+            <p>Each guess must be a valid 5 letter word, you cannot enter random letters. Hit the enter button to submit the guess.</p>
             <p>After your submission, the color of the tiles will change as in the examples below.</p>
             <hr>
             <div class="examples">
@@ -402,8 +254,8 @@
                                 <div slot="letter" class="letter">s</div>
                             </game-tile>
                         </div>
-                        </game-row>
-                        <p>The letter <strong>G</strong> is in the word and in the correct spot.</p>
+                    </game-row>
+                    <p>The letter <strong>G</strong> is in the word and in the correct spot.</p>
                 </div>
                 <div class="example">
                     <game_row>
@@ -424,8 +276,8 @@
                                 <div slot="letter" class="letter">l</div>
                             </game-tile>
                         </div>
-                        </game-row>
-                        <p>The letter <strong>O</strong> is in the word but in the wrong spot.</p>
+                    </game-row>
+                    <p>The letter <strong>O</strong> is in the word but in the wrong spot.</p>
                 </div>
                 <div class="example">
                     <game_row>
@@ -446,8 +298,8 @@
                                 <div slot="letter" class="letter">y</div>
                             </game-tile>
                         </div>
-                        </game-row>
-                        <p>The letter <strong>E</strong> is not in the word in any spot at all.</p>
+                    </game-row>
+                    <p>The letter <strong>E</strong> is not in the word in any spot at all.</p>
                 </div>
             </div>
             <hr>
@@ -533,37 +385,21 @@
             </div>
             <hr>
             <div class="examples">
-                <b>Extras</b><br>
-                <p>
-                </p>
+                <b>Extras</b>
+                <br>
                 <ul>
-                    <li>
-                        <a href="https://wordleunlimited.org/wordle-uk/">Wordle UK</a>
-                    </li>
-                    <li>
-                        <a href="https://wordleunlimited.org/wordle-words-that-start-with-a.php">Wordle words that start
-                            with
-                            the letter "A"</a>
-
-                    </li>
-                    <li>
-                        <a href="https://wordleunlimited.org/wordle-words-that-start-with-b.php">Wordle words that start
-                            with
-                            the letter "B"</a>
-                    </li>
+                    <li><a href="https://wordleunlimited.org/wordle-uk/">Wordle UK</a></li>
+                    <li><a href="https://wordleunlimited.org/wordle-words-that-start-with-a.php">Wordle words that start with the letter "A"</a></li>
+                    <li><a href="https://wordleunlimited.org/wordle-words-that-start-with-b.php">Wordle words that start with the letter "B"</a></li>
                 </ul>
-                <p></p>
             </div>
             <div class="examples">
-                <p>This website is not affiliated with the original Wordle game.
-                </p>
+                <p>This website is not affiliated with the original Wordle game.</p>
                 <p>To find the solution of right click on the screen > GoTo inspect > Console</p>
                 <p>Author and Creator of this website is <strong>SHAHBAZ JAHAN</strong></p>
             </div>
         </div>
     </section>
-
-
 
 </body>
 
